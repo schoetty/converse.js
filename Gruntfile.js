@@ -16,7 +16,7 @@ module.exports = function(grunt) {
                 },
                 files: {
                     "builds/templates.js": ["src/templates/*.html"]
-                },
+                }
             }
         },
 

@@ -8,6 +8,7 @@
 .svn/
 .project
 .pydevproject
+.idea
 node_modules
 components
 docs/doctrees/environment.pickle

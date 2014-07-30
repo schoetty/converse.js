@@ -101,7 +101,7 @@
             /* This works around a webkit bug. Refresh the browser's viewport,
             * otherwise chatboxes are not moved along when one is closed.
             */
-            if ($.browser.webkit) {
+            if ($.browser && $.browser.webkit) {
                 var conversejs = document.getElementById('conversejs');
                 conversejs.style.display = 'none';
                 conversejs.style.height = conversejs.offsetHeight;
@@ -1968,7 +1968,7 @@
                         break;
                     case 'help':
                         $chat_content = this.$el.find('.chat-content');
-                        msgs = [
+                        var msgs = [
                             '<strong>/help</strong>:'+__('Show this menu')+'',
                             '<strong>/me</strong>:'+__('Write in the third person')+'',
                             '<strong>/topic</strong>:'+__('Set chatroom topic')+'',
@@ -2758,7 +2758,7 @@
                 this.set({
                     'collapsed': this.get('collapsed') || false,
                     'num_minimized': this.get('num_minimized') || 0,
-                    'num_unread':  this.get('num_unread') || 0,
+                    'num_unread':  this.get('num_unread') || 0
                 });
             }
         });
@@ -2784,7 +2784,7 @@
                     this.$flyout.show();
                 }
                 return this.$el;
-            },
+            }
         });
 
         this.RosterItem = Backbone.Model.extend({
@@ -2892,7 +2892,7 @@
                     this.$el.html(converse.templates.requesting_contact(
                         _.extend(item.toJSON(), {
                             'desc_accept': __("Click to accept this contact request"),
-                            'desc_decline': __("Click to decline this contact request"),
+                            'desc_decline': __("Click to decline this contact request")
                         })
                     ));
                     converse.controlboxtoggle.showControlBox();
