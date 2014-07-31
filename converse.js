@@ -985,6 +985,9 @@
                     username = msg_dict.sender === 'me' && __('me') || fullname;
                 }
                 $content.find('div.chat-event').remove();
+
+                username = username.replace(/[0-9]+$/, '');
+
                 var message = template({
                     'sender': msg_dict.sender,
                     'time': msg_time.format('hh:mm'),
